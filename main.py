@@ -4,14 +4,19 @@
 # -*- version: v0.0.0 -*-
 
 from sys import argv
-from _syllabifier import _Syllabifier
+from _syllabifier import _Syllabifier, ForeignLetterException
 
 
 def main():
+    """ This function starts the program
+    """
     word = argv[1]
-    syllables = _Syllabifier.syllabify(word)
-    print("\nSyllables : ", end="")
-    print(*syllables, sep=" / ")
+    try:
+        syllables = _Syllabifier.syllabify(word)
+        print("\nHeceler : ", end="")
+        print(*syllables, sep=" / ")
+    except ForeignLetterException:
+        print("Bu kelime yabancı bir harf içeriyor.")
 
 
 if __name__ == "__main__":
