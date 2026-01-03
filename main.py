@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2026 Harun Emre Tutal
+# Licensed under the MIT License
 # -*- author: Harun Emre Tutal -*-
 # -*- title: Türkçe Kelime Heceleme / Turkish Word Syllabifier -*-
 # -*- version: v0.0.0 -*-

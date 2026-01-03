@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2026 Harun Emre Tutal
+# Licensed under the MIT License
 # -*- author: Harun Emre Tutal -*-
 """
     Syllabifier static class is contain here
