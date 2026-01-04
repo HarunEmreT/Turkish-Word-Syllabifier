@@ -6,7 +6,9 @@
     Syllabifier static class is contain here
 """
 
-class _Syllabifier:
+from typing import List
+
+class Syllabifier:
     """ This class contains functions about slicing Turkish words syllable by syllable.
     """
 
@@ -14,13 +16,14 @@ class _Syllabifier:
     CONSONANTS_TR = "bcçdfgğhjklmnprsştvyz"
 
     @classmethod
-    def syllabify(cls: "_Syllabifier", word: str) -> list:
+    def syllabify(cls, word: str) -> List[str]:
         """ This method slices the Turkish words syllable by syllable
         """
-        syllables = []
-        syllable = ""
+        syllables: list[str] = []
+        syllable: str = ""
+
         for l in reversed(word):
-            lower_l = cls.turkish_lower(l)
+            lower_l: str = cls.turkish_lower(l)
             if lower_l not in cls.VOWELS_TR + cls.CONSONANTS_TR:
                 raise ForeignLetterException("The word contains a foreign letter in Turkish.")
 
@@ -37,10 +40,11 @@ class _Syllabifier:
 
         if syllable:
             syllables.append(syllable)
+
         return syllables[::-1]
 
     @classmethod
-    def turkish_lower(cls: "_Syllabifier", letter: str) -> str:
+    def turkish_lower(cls, letter: str) -> str:
         """ This method solves the problem of changing the letter "İ" from uppercase to lowercase.
         """
         if letter == "İ":
@@ -53,4 +57,4 @@ class ForeignLetterException(ValueError):
 
 
 if __name__ == "__main__":
-    print(_Syllabifier.syllabify("Herhangi"))
+    print(Syllabifier.syllabify("Herhangi"))

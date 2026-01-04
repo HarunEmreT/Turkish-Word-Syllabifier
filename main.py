@@ -6,7 +6,7 @@
 # -*- version: v0.0.0 -*-
 
 from sys import argv
-from _syllabifier import _Syllabifier, ForeignLetterException
+from syllabifier import Syllabifier, ForeignLetterException
 
 
 def main():
@@ -14,12 +14,13 @@ def main():
     """
     word = argv[1]
     try:
-        syllables = _Syllabifier.syllabify(word)
+        syllables = Syllabifier.syllabify(word)
         print("\nHeceler : ", end="")
         print(*syllables, sep=" / ")
+
     except ForeignLetterException:
         print("Bu kelime yabancı bir harf içeriyor.")
 
 
 if __name__ == "__main__":
-    main()
+    main()  ## run
